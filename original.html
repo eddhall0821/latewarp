@@ -1,0 +1,58 @@
+<html>
+  <style>
+    #instructions {
+      width: 100%;
+      height: 100%;
+
+      user-select: none;
+      text-shadow: 1px 1px 1px #9e9e9e;
+
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+
+      display: -webkit-box;
+      display: -moz-box;
+      display: box;
+
+      -webkit-box-orient: horizontal;
+      -moz-box-orient: horizontal;
+      box-orient: horizontal;
+
+      -webkit-box-pack: center;
+      -moz-box-pack: center;
+      box-pack: center;
+
+      -webkit-box-align: center;
+      -moz-box-align: center;
+      box-align: center;
+
+      color: #ffffff;
+      text-align: center;
+      font-family: Arial;
+      font-size: 14px;
+      line-height: 24px;
+
+      cursor: pointer;
+    }
+  </style>
+  <body style="margin: 0">
+    <div id="instructions">
+      <div>
+        <h1>Click to begin</h1>
+
+        Shoot: LEFT MOUSE CLICK<br />
+        Move: W-A-S-D or ARROWS<br />
+        Run: SHIFT<br />
+        Jump: SPACE<br />
+        Look: MOUSE
+      </div>
+    </div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.js"></script>
+  <script src="https://mrdoob.github.io/stats.js/build/stats.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.meshline/1.3.0/THREE.MeshLine.js"></script>
+  <script src="js/fps2.js"></script>
+</html>
