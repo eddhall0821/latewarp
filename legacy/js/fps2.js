@@ -1,18 +1,3 @@
-function toggleFullscreen() {
-  let elem = document.body;
-  if (!document.fullscreenElement) {
-    elem.requestFullscreen().catch((err) => {
-      alert(
-        `Error attempting to enable fullscreen mode: ${err.message} (${err.name})`
-      );
-    });
-  } else {
-    document.exitFullscreen();
-  }
-}
-
-toggleFullscreen();
-
 THREE.FirstPersonControls = function (
   camera,
   MouseMoveSensitivity = 0.002,
@@ -187,15 +172,16 @@ THREE.FirstPersonControls = function (
 
     scope.getObject().translateX(-velocity.x * delta);
     scope.getObject().translateZ(velocity.z * delta);
-
     scope.getObject().position.y += velocity.y * delta;
 
+    //
     if (scope.getObject().position.y < scope.height) {
       velocity.y = 0;
       scope.getObject().position.y = scope.height;
 
       canJump = true;
     }
+    //
     prevTime = time;
   };
 };
@@ -271,6 +257,7 @@ if (havePointerLock) {
         element.requestFullscreen();
       } else {
         element.requestPointerLock();
+        element.requestFullscreen();
       }
     },
     false
@@ -343,7 +330,7 @@ function init() {
 
   // floor
 
-  var floorGeometry = new THREE.PlaneBufferGeometry(2000, 2000, 100, 100);
+  var floorGeometry = new THREE.PlaneBufferGeometry(2000, 2000, 2, 2);
   var floorMaterial = new THREE.MeshLambertMaterial();
   floorMaterial.color.setHSL(0.095, 1, 0.75);
 
@@ -352,8 +339,7 @@ function init() {
   floor.receiveShadow = true;
   world.add(floor);
 
-  // objects
-
+  // add objects----
   var boxGeometry = new THREE.BoxBufferGeometry(1, 1, 1);
   boxGeometry.translate(0, 0.5, 0);
 
